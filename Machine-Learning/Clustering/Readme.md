@@ -1,4 +1,4 @@
-# 🛍️ Segmentation Clientèle avec K-Means
+# 🛍️ Customer Segmentation with K-Means
 
 [![Python](https://img.shields.io/badge/python-3.x-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -7,95 +7,60 @@
 
 ## 📌 Description
 
-Ce projet implémente un **modèle de clustering K-Means** pour segmenter automatiquement une base clients en groupes homogènes.
-L’objectif : identifier des profils distincts afin de **mieux comprendre les clients**, personnaliser les offres et optimiser les campagnes marketing.
+This project implements a **K-Means clustering model** to automatically segment a customer database into homogeneous groups.  
+The goal: identify distinct profiles to **better understand customers**, personalize offers, and optimize marketing campaigns.
 
 ---
 
-## 🎯 Objectifs
+## 🎯 Objectives
 
-* Créer une segmentation **actionnable et cohérente**.
-* Identifier des groupes selon : âge, revenu, score de dépense, comportement d’achat.
-* Fournir une base pour : campagnes marketing ciblées, fidélisation, offres personnalisées.
+* Create an **actionable and coherent** segmentation.
+* Identify groups based on: age, income, spending score, and purchasing behavior.
+* Provide a foundation for: targeted marketing campaigns, customer retention, and personalized offers.
 
 ---
 
-## 🗂️ Données utilisées
+## 🗂️ Data Used
 
 | Variable                 | Description                             |
 | ------------------------ | --------------------------------------- |
-| `Gender`                 | Sexe du client                          |
-| `Age`                    | Âge du client                           |
-| `Annual Income (k$)`     | Revenu annuel en k$                     |
-| `Spending Score (1-100)` | Score de dépense / comportement d’achat |
+| `Gender`                 | Customer gender                          |
+| `Age`                    | Customer age                             |
+| `Annual Income (k$)`     | Annual income in k$                       |
+| `Spending Score (1-100)` | Spending score / purchasing behavior    |
 
-> **Remarque** : Données complètes, pas de valeurs manquantes ou doublons.
-
----
-
-## 🔍 Analyse exploratoire (EDA)
-
-* Distribution des variables et identification des outliers
-* Corrélations entre âge, revenu et score de dépense
-* Scatter matrix et pairplot pour visualiser les regroupements naturels
-* Observation : Age, Income et Spending Score montrent des tendances bimodales → parfait pour K-Means
+> **Note**: Complete dataset, no missing values or duplicates.
 
 ---
 
-## ⚙️ Préparation des données
+## 🔍 Exploratory Data Analysis (EDA)
 
-* Encodage de `Gender` en variable numérique (One-Hot)
-* Standardisation avec `StandardScaler`
-* Création du dataset final pour clustering
-
----
-
-## 🧩 Clustering K-Means
-
-* **Méthodes pour déterminer le nombre de clusters** :
-
-  * Méthode du coude (Elbow Method)
-  * Score de silhouette
-  * Visualisations Yellowbrick
-* **Nombre optimal de clusters** : `k = 3`
-
-### Profils des clusters
-
-| Cluster | Âge        | Revenu   | Score de dépense | Profil                                             |
-| ------- | ---------- | -------- | ---------------- | -------------------------------------------------- |
-| 0       | 20-40 ans  | 30-70 k$ | Élevé            | Jeunes consommateurs, forte dépense                |
-| 1       | 20-40 ans  | 20-50 k$ | Modéré           | Jeunes, dépense prudente, sensibles aux promotions |
-| 2       | 40-60+ ans | 100 k$+  | Faible           | Plus âgés, hauts revenus, achats ciblés            |
-
-> **Remarque** : Quelques chevauchements naturels existent entre clusters, reflétant la continuité des comportements clients.
+* Variable distributions and identification of outliers
+* Correlations between age, income, and spending score
+* Scatter matrix and pairplot to visualize natural groupings
+* Observation: Age, Income, and Spending Score show bimodal trends → perfect for K-Means
 
 ---
 
-## 📊 Résultats
+## ⚙️ Data Preparation
 
-* Segmentation claire et exploitable
-* Identification de profils stratégiques pour **marketing, fidélisation et offres premium**
-* Visualisations : pairplot, diagrammes de densité, silhouettes
-
----
-
-## 🛠️ Technologies et bibliothèques
-
-* **Langage** : Python 3.x
-* **Manipulation et analyse** : Pandas, NumPy
-* **Visualisation** : Matplotlib, Seaborn, Plotly
-* **Machine Learning** : Scikit-learn (`KMeans`, `StandardScaler`)
-* **Évaluation clusters** : Yellowbrick
+* Encoding `Gender` into numerical variables (One-Hot)
+* Standardization using `StandardScaler`
+* Creation of the final dataset for clustering
 
 ---
 
-## 📈 Conclusion
+## 🧩 K-Means Clustering
 
-La segmentation en **3 clusters** permet de :
+* **Methods to determine the number of clusters**:
 
-1. Identifier les clients à forte dépense et jeunes (Cluster 0)
-2. Travailler sur la fidélisation et montée en gamme (Cluster 1)
-3. Proposer des offres premium ciblées aux hauts revenus peu dépensiers (Cluster 2)
+  * Elbow Method
+  * Silhouette Score
+  * Yellowbrick visualizations
+* **Optimal number of clusters**: `k = 3`
 
-Cette approche fournit une **base solide pour la stratégie marketing personnalisée** et peut être intégrée dans un CRM ou un tableau de bord analytique.
+### Cluster Profiles
 
+| Cluster | Age        | Income   | Spending Score | Profile                                             |
+| ------- | ---------- | -------- | --------------- | -------------------------------------------------- |
+| 0       | 20-40 yrs  | 30-70 k$ | High
